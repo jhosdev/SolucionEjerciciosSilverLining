@@ -15,6 +15,26 @@ La tabla "Pedidos" contiene la siguiente estructura:
 * Cantidad (entero)
 * Fecha de pedido (fecha y hora)
 
+```sql
+-- Creación de la tabla "Usuarios"
+CREATE TABLE Usuarios (
+    ID INT PRIMARY KEY,
+    Nombre VARCHAR(255),
+    Email VARCHAR(255),
+    FechaRegistro DATETIME
+);
+
+-- Creación de la tabla "Pedidos"
+CREATE TABLE Pedidos (
+    ID INT PRIMARY KEY,
+    UsuarioID INT,
+    Producto VARCHAR(255),
+    Cantidad INT,
+    FechaPedido DATETIME,
+    FOREIGN KEY (UsuarioID) REFERENCES Usuarios(ID)
+);
+```
+
 A continuación, se detallan las consultas a realizar:
 
 a) Obtener el nombre y el email de todos los usuarios registrados en orden alfabético:
